@@ -1,0 +1,19 @@
+# This patch would be needed if current mptcp kernel patch
+# stops working on a newer (than 5.4.188) kernel version.
+# In that scenario, include this patch in patches/series file.
+#
+Index: b/openwrt/target/linux/ramips/Makefile
+===================================================================
+--- a/openwrt/target/linux/ramips/Makefile
++++ b/openwrt/target/linux/ramips/Makefile
+@@ -10,8 +10,8 @@ BOARDNAME:=MediaTek Ralink MIPS
+ SUBTARGETS:=mt7620 mt7621 mt76x8 rt288x rt305x rt3883
+ FEATURES:=squashfs gpio
+ 
+-KERNEL_PATCHVER:=5.4
+-KERNEL_TESTING_PATCHVER:=5.4
++KERNEL_PATCHVER:=5.4.188
++KERNEL_TESTING_PATCHVER:=5.4.188
+ 
+ define Target/Description
+ 	Build firmware images for Ralink RT288x/RT3xxx based boards.

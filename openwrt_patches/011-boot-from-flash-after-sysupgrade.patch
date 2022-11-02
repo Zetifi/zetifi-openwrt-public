@@ -1,0 +1,14 @@
+--- a/openwrt/package/base-files/files/lib/upgrade/do_stage2
++++ b/openwrt/package/base-files/files/lib/upgrade/do_stage2
+@@ -18,6 +18,11 @@ fi
+ v "Upgrade completed"
+ sleep 1
+ 
++v "Enabling boot from flash..."
++
++echo -n flasheth > /sys/firmware/mikrotik/soft_config/boot_device
++echo -n 1 > /sys/firmware/mikrotik/soft_config/commit
++
+ v "Rebooting system..."
+ umount -a
+ reboot -f

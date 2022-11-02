@@ -1,0 +1,13 @@
+Index: zetifi-openwrt/openwrt/feeds/packages/net/stubby/files/stubby.init
+===================================================================
+--- a/openwrt/feeds/packages/net/stubby/files/stubby.init
++++ b/openwrt/feeds/packages/net/stubby/files/stubby.init
+@@ -248,7 +248,7 @@ start_service() {
+         if [ -n "$command_line_arguments" ]; then
+             procd_append_param command "$command_line_arguments"
+         fi
+-        procd_set_param respawn
++        procd_set_param respawn 60 5 0
+         procd_set_param file "$stubby_config"
+         procd_set_param stdout 1
+         procd_set_param stderr 1

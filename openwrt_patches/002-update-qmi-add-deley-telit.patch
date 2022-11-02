@@ -1,0 +1,12 @@
+Index: b/openwrt/package/network/utils/uqmi/files/lib/netifd/proto/qmi.sh
+===================================================================
+--- a/openwrt/package/network/utils/uqmi/files/lib/netifd/proto/qmi.sh
++++ b/openwrt/package/network/utils/uqmi/files/lib/netifd/proto/qmi.sh
+@@ -80,6 +80,7 @@ proto_qmi_setup() {
+ 	}
+ 
+ 	echo "Waiting for SIM initialization"
++ 	zfunc wait_until_modem_is_ready
+ 	local uninitialized_timeout=0
+ 	while uqmi -s -d "$device" --get-pin-status | grep '"UIM uninitialized"' > /dev/null; do
+ 		[ -e "$device" ] || return 1

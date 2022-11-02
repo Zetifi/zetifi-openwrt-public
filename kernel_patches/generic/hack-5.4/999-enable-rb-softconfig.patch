@@ -1,0 +1,12 @@
+--- a/drivers/platform/mikrotik/rb_softconfig.c
++++ b/drivers/platform/mikrotik/rb_softconfig.c
+@@ -69,8 +69,8 @@
+  #define RB_SC_WMODE			S_IWUSR
+  #define RB_SC_RMODE			S_IRUSR
+ #else
+- #define RB_SC_HAS_WRITE_SUPPORT	false
+- #define RB_SC_WMODE			0
++ #define RB_SC_HAS_WRITE_SUPPORT	true
++ #define RB_SC_WMODE			S_IWUSR
+  #define RB_SC_RMODE			S_IRUSR
+ #endif

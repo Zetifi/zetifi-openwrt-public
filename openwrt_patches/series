@@ -1,0 +1,12 @@
+001-diffconfig.patch
+002-update-qmi-add-deley-telit.patch
+003-update-default-feed.patch
+004-fix-iperf3-build.patch
+005-update-iproute2-rt-tables.patch
+006-update-kernel-config.patch
+007-bash-as-default-shell.patch
+008-update-softflowd-initd.patch
+008-update-stubby-initd.patch
+009-enable-write-soft-config.patch
+010-add-persistent-partition.patch
+011-boot-from-flash-after-sysupgrade.patch

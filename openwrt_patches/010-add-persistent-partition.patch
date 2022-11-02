@@ -1,0 +1,17 @@
+--- a/openwrt/target/linux/ramips/dts/mt7621_mikrotik_routerboard-m33g.dts
++++ b/openwrt/target/linux/ramips/dts/mt7621_mikrotik_routerboard-m33g.dts
+@@ -84,7 +84,13 @@
+ 			partition@40000 {
+ 				compatible = "mikrotik,minor";
+ 				label = "firmware";
+-				reg = <0x040000 0xfc0000>;
++				reg = <0x040000 0xf40000>;
++			};
++			
++			partition@f00000 {
++				compatible = "mikrotik,minor";
++				label = "persistent";
++				reg = <0xf80000 0x080000>;
+ 			};
+ 		};
+ 	};

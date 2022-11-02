@@ -1,0 +1,12 @@
+Index: b/drivers/mtd/spi-nor/spi-nor.c
+===================================================================
+--- a/drivers/mtd/spi-nor/spi-nor.c
++++ b/drivers/mtd/spi-nor/spi-nor.c
+@@ -2435,6 +2435,7 @@ static const struct flash_info spi_nor_i
+ 	{ "w25x10", INFO(0xef3011, 0, 64 * 1024,  2,  SECT_4K) },
+ 	{ "w25x20", INFO(0xef3012, 0, 64 * 1024,  4,  SECT_4K) },
+ 	{ "w25x40", INFO(0xef3013, 0, 64 * 1024,  8,  SECT_4K) },
++    { "w25x40-sc1", INFO(0xc84013, 0, 64 * 1024,  8,  SECT_4K) },
+ 	{ "w25x80", INFO(0xef3014, 0, 64 * 1024,  16, SECT_4K) },
+ 	{ "w25x16", INFO(0xef3015, 0, 64 * 1024,  32, SECT_4K) },
+ 	{

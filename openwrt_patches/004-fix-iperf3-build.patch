@@ -1,0 +1,52 @@
+Index: b/openwrt/feeds/packages/net/iperf3/Makefile
+===================================================================
+--- a/openwrt/feeds/packages/net/iperf3/Makefile
++++ b/openwrt/feeds/packages/net/iperf3/Makefile
+@@ -8,12 +8,12 @@
+ include $(TOPDIR)/rules.mk
+ 
+ PKG_NAME:=iperf
+-PKG_VERSION:=3.10.1
+-PKG_RELEASE:=1
++PKG_VERSION:=3.11
++PKG_RELEASE:=10
+ 
+-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
+-PKG_SOURCE_URL:=https://downloads.es.net/pub/iperf
+-PKG_HASH:=03bc9760cc54a245191d46bfc8edaf8a4750f0e87abca6764486972044d6715a
++PKG_SOURCE:=$(PKG_VERSION).tar.gz
++PKG_SOURCE_URL:=https://github.com/esnet/iperf/archive/refs/tags/
++PKG_HASH:=96e909c0d3ab6034c52328c2954fb3934aaff349395c4bc2611dcd50e6b89875
+ 
+ PKG_MAINTAINER:=Felix Fietkau <nbd@nbd.name>
+ PKG_LICENSE:=BSD-3-Clause
+Index: b/openwrt/feeds/packages/net/iperf3/patches/remove-in6_flowlabel_req.patch
+===================================================================
+--- /dev/null
++++ b/openwrt/feeds/packages/net/iperf3/patches/remove-in6_flowlabel_req.patch
+@@ -0,0 +1,25 @@
++--- a/src/flowlabel.h   2021-06-24 13:26:33.142463630 +0200
+++++ b/src/flowlabel.h   2021-06-24 13:27:45.669235179 +0200
++@@ -37,21 +37,21 @@
++    conflicts with "netinet/in.h" .
++ */
++ 
++-#ifndef __ANDROID__
+++#ifndef _LINUX_IN6_H
++ struct in6_flowlabel_req
++ {
++     struct in6_addr flr_dst;
++     __u32   flr_label;
++     __u8    flr_action;
++     __u8    flr_share;
++     __u16   flr_flags;
++     __u16   flr_expires;
++     __u16   flr_linger;
++     __u32   __flr_pad;
++     /* Options in format of IPV6_PKTOPTIONS */
++ };
++ #endif
++ 
++ #define IPV6_FL_A_GET           0
++ #define IPV6_FL_A_PUT           1
++ #define IPV6_FL_A_RENEW         2
